@@ -1,5 +1,7 @@
 import pandas as pd
 
+import matplotlib.pyplot as plt
+
 df = pd.read_csv("./data/astronauts.csv", delimiter=",")
 
 # print(df)
@@ -29,7 +31,23 @@ df = pd.read_csv("./data/astronauts.csv", delimiter=",")
   
 # print(df[df["Year"]<1990])
 
-df2 = df.sort_values("Name",ascending=False)
+# sorting element
 
-for name in df2["Name"]:
+dfsort = df.sort_values("Name",ascending=False)
+
+for name in dfsort["Name"]:
   print(name)
+
+# excel
+
+df2= pd.read_excel("./data/daten.xlsx")
+
+print(df2.head())
+
+year = df2["Jahr"]
+sales = df2["Umsatz"]
+
+print(year, sales)
+
+plt.plot(year,sales)
+plt.show()
